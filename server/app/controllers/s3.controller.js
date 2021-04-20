@@ -1,7 +1,9 @@
+const { CloudSearch } = require('aws-sdk');
 const s3 = require('../config/s3.config.js'); 
+const env = require('../config/s3.env.js');
 exports.doUpload = (req, res) => {
 	const params = {
-		Bucket: process.env.Bucket,
+		Bucket: env.Bucket,
 		Key: req.file.originalname,
 		Body: req.file.buffer
 	}
@@ -16,7 +18,7 @@ exports.doUpload = (req, res) => {
 
 exports.listKeyNames = (req, res) => {
 	const params = {
-		Bucket: process.env.Bucket
+		Bucket: env.Bucket
 	}
 
 	var keys = [];
@@ -36,7 +38,7 @@ exports.listKeyNames = (req, res) => {
 
 exports.doDownload = (req, res) => {
 	const params = {
-		Bucket: process.env.Bucket,
+		Bucket: env.Bucket,
 		Key: req.params.filename
 	}
 

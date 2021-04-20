@@ -2,6 +2,9 @@
 
 The server is developed with node js
 
+## Step to Reproduce
+You need to add the your secret key and accesskey in the s3.env.js
+
 # Setup the App
 
 ```bash
